@@ -1,0 +1,9 @@
+
+
+dynamique_configurator:
+    path:     /dynamique-config/{part}
+    defaults: { _controller: "KalamuDynamiqueConfigBundle:DynamiqueConfigurator:index", part: null }
+
+dynamique_configurator_export:
+    path:     /dynamique-config-export
+    defaults: { _controller: "KalamuDynamiqueConfigBundle:DynamiqueConfigurator:export" }

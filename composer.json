@@ -1,0 +1,30 @@
+{
+    "name": "kalamu/dynamique-config-bundle",
+    "type": "library",
+    "description": "A configuration container independant of Symfony.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Johan DESMYTER",
+            "email": "johan@etic.yt"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/kalamu/dynamique-config-bundle.git"
+        }
+    ],
+    "require": {
+        "symfony/symfony": "^2.0||^3.0"
+    },
+    "autoload": {
+         "psr-4": { "Kalamu\\DynamiqueConfigBundle\\": "" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+
+}

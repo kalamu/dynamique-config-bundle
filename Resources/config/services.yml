@@ -1,0 +1,11 @@
+parameters:
+    kalamu_dynamique_config.container.class: Kalamu\DynamiqueConfigBundle\Container\ParameterContainer
+    kalamu_dynamique_config.file: '%kernel.root_dir%/config/dynamique_config.yml'
+
+services:
+    kalamu_dynamique_config:
+        class: %kalamu_dynamique_config.container.class%
+        arguments: ['%kernel.cache_dir%', '%kernel.debug%', '%kalamu_dynamique_config.file%']
+        tags:
+            - { name: kernel.cache_clearer }
+            - { name: kernel.cache_warmer }
