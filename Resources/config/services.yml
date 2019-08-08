@@ -4,8 +4,9 @@ parameters:
 
 services:
     kalamu_dynamique_config:
-        class: %kalamu_dynamique_config.container.class%
+        class: '%kalamu_dynamique_config.container.class%'
         arguments: ['%kernel.cache_dir%', '%kernel.debug%', '%kalamu_dynamique_config.file%']
         tags:
             - { name: kernel.cache_clearer }
             - { name: kernel.cache_warmer }
+        public: true

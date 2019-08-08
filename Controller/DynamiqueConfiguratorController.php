@@ -12,6 +12,8 @@
 namespace Kalamu\DynamiqueConfigBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Constraints\File;
@@ -41,7 +43,7 @@ class DynamiqueConfiguratorController extends Controller
         $import_form = $this->getImportForm();
 
         $import_form->handleRequest($Request);
-        if($import_form->isValid()){
+        if($import_form->isSubmitted() && $import_form->isValid()){
             $file = $import_form->get('file')->getData();
             try{
                 $config = Yaml::parse(file_get_contents($file->getRealPath()), true);
@@ -89,10 +91,10 @@ class DynamiqueConfiguratorController extends Controller
 
     protected function getImportForm(){
         return $this->createFormBuilder()
-                ->add('file', 'file', array('required' => true, 'constraints' => array(
+                ->add('file', FileType::class, array('required' => true, 'constraints' => array(
                     new File(array('mimeTypes' => 'text/plain'))
                 )))
-                ->add('submit', 'submit', array('label' => 'Enregistrer', 'attr' => array('class' => 'btn btn-success')))
+                ->add('submit', SubmitType::class, array('label' => 'Save', 'attr' => array('class' => 'btn btn-success')))
                 ->getForm();
     }
 
