@@ -52,7 +52,8 @@ class DynamiqueConfiguratorController extends Controller
                     $configContainer->set($key, $val);
                 }
 
-                $this->addFlash('success', "The configuration has been imported.");
+                $messageFlash = $this->get('translator')->trans('success_imported_config_message', [], 'kalamu');
+                $this->addFlash('success', $messageFlash);
                 return $this->redirect($this->generateUrl('dynamique_configurator', array('part' => '_export_config')));
             }catch(ParseException $e){
                 $import_form->get('file')->addError(new FormError($e->getMessage()));
@@ -91,11 +92,23 @@ class DynamiqueConfiguratorController extends Controller
 
     protected function getImportForm(){
         return $this->createFormBuilder()
-                ->add('file', FileType::class, array('required' => true, 'constraints' => array(
-                    new File(array('mimeTypes' => 'text/plain'))
-                )))
-                ->add('submit', SubmitType::class, array('label' => 'Save', 'attr' => array('class' => 'btn btn-success')))
-                ->getForm();
+            ->add('file', FileType::class, array(
+                'required' => true, 
+                'constraints' => array(
+                    new File(array(
+                        'mimeTypes' => 'text/plain'
+                    ))
+                )
+            ))
+            ->add('submit', SubmitType::class, array(
+                'label' => 'Save',
+                'translation_domain' => "kalamu",
+                'attr' => array(
+                    'class' => 'btn btn-success'
+                )
+            ))
+            ->getForm()
+        ;
     }
 
 }

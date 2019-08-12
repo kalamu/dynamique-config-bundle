@@ -1,20 +1,26 @@
 {% extends base_template %}
+{% trans_default_domain 'kalamu' %}
 
 {% block configurator %}
     <div class="box box-primary">
         <div class='box-header with-border'>
-            <h3 class="box-title"><i class="fa fa-exchange"></i> Import/Export the configuration</h3>
+            <h3 class="box-title">
+                <i class="fa fa-exchange"></i>
+                {{ "Import/Export the configuration"|trans }} 
+            </h3>
         </div>
         <div class="box-body">
             <div class="alert alert-warning">
-                This fonctionality allow to backup and restore all the configuration options.<br/>
-                <strong>Warning, this fonctionality export only the configuration an nothing else !</strong>
-                </div>
+                {{ "import_export_help_message"|trans|raw }}
+            </div>
 
-            <h3 class="mt25">Export</h3>
-            <a href="{{path('dynamique_configurator_export')}}" class="btn btn-info btn-lg"><i class="fa fa-download"></i> Download the configuration file</a>
+            <h3 class="mt25">{{ "Export"|trans }}</h3>
+            <a href="{{path('dynamique_configurator_export')}}" class="btn btn-info btn-lg">
+                <i class="fa fa-download"></i> 
+                {{ "Download the configuration file"|trans }}
+            </a>
 
-            <h3 class="mt25">Import</h3>
+            <h3 class="mt25">{{ "Import"|trans }}</h3>
             <form action="" method="POST" enctype="multipart/form-data">
                 {% if import_form.file.vars.errors|length %}
                     <div class="alert alert-danger">

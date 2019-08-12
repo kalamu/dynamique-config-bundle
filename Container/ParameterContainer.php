@@ -129,7 +129,7 @@ class ParameterContainer implements CacheClearerInterface, CacheWarmerInterface
      */
     public function set($key, $value){
         if(in_array(gettype($value), array('ressource', 'object'))){
-            throw new \InvalidArgumentException(sprintf("Il  n'est pas possible de définir un paramètre de type %s", gettype($value)));
+            throw new \InvalidArgumentException(sprintf("It is not possible to define a parameter of type %s", gettype($value)));
         }
         $this->config[strval($key)] = $value;
         $this->save();

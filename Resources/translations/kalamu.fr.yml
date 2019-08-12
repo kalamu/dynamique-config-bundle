@@ -1,0 +1,8 @@
+Save: Enregistrer
+Export: Exporter
+Import: Importer
+"Configuration options": "Options de configuration"
+"Import/Export the configuration": "Importer/Exporter la configuration"
+"Download the configuration file": "Télécharger le fichier de configuration"
+success_imported_config_message: "La configuration a bien été importée."
+import_export_help_message: "Cette fonctionnalité permet de sauvegarder et de restaurer toutes les options de configuration. <br/> <strong> Attention, cette fonctionnalité n’exporte que la configuration et rien d’autre! </ Strong>"
