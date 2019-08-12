@@ -1,0 +1,8 @@
+Save: Save
+Export: Export
+Import: Import
+"Configuration options": "Configuration options"
+"Import/Export the configuration": "Import/Export the configuration"
+"Download the configuration file": "Download the configuration file"
+success_imported_config_message: "The configuration has been imported."
+import_export_help_message: "This functionality allow to backup and restore all the configuration options.<br/> <strong>Warning, this functionality export only the configuration an nothing else !</strong>"
